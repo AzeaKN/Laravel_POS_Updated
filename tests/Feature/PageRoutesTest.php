@@ -42,9 +42,9 @@ class PageRoutesTest extends TestCase
 
         $this->get(route('profile'))
             ->assertOk()
-            ->assertSee('chaz1303')
-            ->assertSee('Chaz')
-            ->assertSee('chaz1303@example.com');
+            ->assertSee('AzeaKN')
+            ->assertSee('Azea Kirsten E. Natividad')
+            ->assertSee('aenatividad@feualabang.edu.ph');
     }
 
     public function test_seed_contains_eight_tasks_across_multiple_dates(): void

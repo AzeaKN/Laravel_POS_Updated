@@ -13,9 +13,9 @@ class DatabaseSeeder extends Seeder
     {
         User::query()->delete();
         User::create([
-            'username' => 'chaz1303',
-            'full_name' => 'Chaz',
-            'email' => 'chaz1303@example.com',
+            'username' => 'AzeaKN',
+            'full_name' => 'Azea Kirsten E. Natividad',
+            'email' => 'aenatividad@feualabang.edu.ph',
         ]);
 
         $today = Carbon::today();
