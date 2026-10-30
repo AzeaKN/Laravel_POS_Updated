@@ -1,4 +1,4 @@
-# Tasks for Today Management system
+# Tasks for Today Management System
 
 A Laravel and Blade rebuild of the TSA1 task management system.
 
