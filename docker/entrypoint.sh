@@ -1,6 +1,15 @@
 #!/bin/sh
 set -eu
 
+case "${APP_KEY:-}" in
+    base64:*)
+        ;;
+    *)
+        unset APP_KEY
+        php artisan key:generate --force --no-interaction
+        ;;
+esac
+
 if [ ! -f database/database.sqlite ]; then
     touch database/database.sqlite
 fi
