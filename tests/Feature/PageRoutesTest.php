@@ -57,7 +57,7 @@ class PageRoutesTest extends TestCase
     {
         $this->get(route('about'))
             ->assertOk()
-            ->assertSee('Built by Chaz')
+            ->assertSee('Built by AZ')
             ->assertSee('Laravel');
     }
 }
