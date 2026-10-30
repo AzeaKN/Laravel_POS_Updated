@@ -1,9 +1,25 @@
 #!/bin/sh
 set -eu
 
+if [ ! -f .env ]; then
+    cp .env.example .env
+fi
+
+case "${APP_KEY:-}" in
+    base64:*)
+        ;;
+    *)
+        unset APP_KEY
+        php artisan key:generate --force --no-interaction
+        ;;
+esac
+
 if [ ! -f database/database.sqlite ]; then
     touch database/database.sqlite
 fi
+
+chown www-data:www-data database/database.sqlite
+chmod 664 database/database.sqlite
 
 php artisan migrate --seed --force
 php artisan config:cache
