@@ -31,6 +31,8 @@ Use `php artisan migrate:fresh --seed` only when resetting the local demo databa
 | `/tasks` | Full task list ordered by task date |
 | `/profile` | The single seeded user profile |
 | `/about` | Static project and developer information |
+| `/customers` | Customer directory with create and edit workflows |
+| `/users` | Staff directory with create, edit, and avatar upload workflows |
 
 ## Application structure
 
@@ -49,6 +51,10 @@ Use `php artisan migrate:fresh --seed` only when resetting the local demo databa
 ```powershell
 php artisan test
 ```
+
+Use `php artisan storage:link` once before testing avatar display locally. User avatars are
+validated as images up to 2 MB, resized to 256x256 JPEG thumbnails with Intervention Image,
+and stored on Laravel's public disk.
 
 ## Deploy on Render
 

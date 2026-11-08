@@ -40,6 +40,14 @@
                     <span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.1"/></svg></span>
                     <span>About</span><small>♡</small>
                 </a>
+                <a href="{{ route('customers.index') }}" @class(['active' => request()->routeIs('customers.*')])>
+                    <span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M16 11a3 3 0 1 0 0-6m1 8a5 5 0 0 1 4 5"/></svg></span>
+                    <span>Customers</span><small>{{ \App\Models\Customer::count() }}</small>
+                </a>
+                <a href="{{ route('users.index') }}" @class(['active' => request()->routeIs('users.*')])>
+                    <span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+                    <span>Users</span><small>{{ \App\Models\User::count() }}</small>
+                </a>
             </nav>
 
             <div class="sidebar-bloom" aria-hidden="true"><span>✦</span><span>♡</span><span>✿</span></div>
