@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Intervention\Image\ImageManager;
@@ -54,12 +55,18 @@ class UserController extends Controller
 
         $avatarPath = $user->avatar;
         if ($request->hasFile('avatar')) {
-            $thumbnail = ImageManager::gd()
-                ->read($request->file('avatar')->getRealPath())
-                ->cover(256, 256)
-                ->toJpeg(80);
-            $avatarPath = 'avatars/'.Str::uuid().'.jpg';
-            Storage::disk('public')->put($avatarPath, $thumbnail);
+            if (extension_loaded('gd')) {
+                $thumbnail = ImageManager::gd()
+                    ->read($request->file('avatar')->getRealPath())
+                    ->cover(256, 256)
+                    ->toJpeg(80);
+                $avatarPath = 'avatars/'.Str::uuid().'.jpg';
+                Storage::disk('public')->put($avatarPath, $thumbnail);
+            } else {
+                Log::warning('GD is unavailable; storing the validated avatar without thumbnail processing.');
+                $avatarPath = $request->file('avatar')->store('avatars', 'public');
+            }
+
             if ($user->avatar) {
                 Storage::disk('public')->delete($user->avatar);
             }
