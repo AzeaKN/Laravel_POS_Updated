@@ -1,5 +1,17 @@
 # Module 6: Laravel Database Layer
 
+## Module 7: Authentication and protected account management
+
+Laravel Breeze provides the `/login` and `/register` screens. Customer and user
+management routes use Laravel's `auth` middleware, so guests are redirected to
+the login page. Register with a username, full name, email, and password, or use
+the seeded demonstration account:
+
+- Email: `aenatividad@feualabang.edu.ph`
+- Password: `ChangeMe123!`
+
+Change the demonstration password before deployment.
+
 The original customer and user pages now query SQLite via Eloquent models, rather than controller static arrays. Existing layouts and styling are preserved. The 13 original customers and 6 original staff accounts are seeded.
 
 ## First-time setup

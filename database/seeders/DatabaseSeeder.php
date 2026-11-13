@@ -6,6 +6,7 @@ use App\Models\Task;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +17,10 @@ class DatabaseSeeder extends Seeder
             'username' => 'AzeaKN',
             'full_name' => 'Azea Kirsten E. Natividad',
             'email' => 'aenatividad@feualabang.edu.ph',
+            'password' => Hash::make('ChangeMe123!'),
+            'email_verified_at' => now(),
+            'role' => 'Developer',
+            'status' => 'Active',
         ]);
 
         $today = Carbon::today();

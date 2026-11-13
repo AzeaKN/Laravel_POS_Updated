@@ -13,6 +13,12 @@ class AccountManagementTest extends TestCase
 
     protected $seed = true;
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->actingAs(User::factory()->create());
+    }
+
     public function test_customer_create_form_validates_and_stores_a_customer(): void
     {
         $this->get(route('customers.create'))->assertOk()->assertSee('Add customer');

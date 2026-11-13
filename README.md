@@ -56,6 +56,13 @@ Use `php artisan storage:link` once before testing avatar display locally. User 
 validated as images up to 2 MB, resized to 256x256 JPEG thumbnails with Intervention Image,
 and stored on Laravel's public disk.
 
+## Authentication
+
+Laravel Breeze provides the `/login` and `/register` pages. Customer and user
+account management is protected by the `auth` middleware, so guests are
+redirected to login. Run `npm install` and `npm run build` when setting up the
+Breeze frontend assets.
+
 ## Deploy on Render
 
 This repository includes `Dockerfile` and `render.yaml` for deployment. Push the project to GitHub, then in Render choose **New → Blueprint**, select the repository, and apply the blueprint. Render will build the Docker image and provide a public `onrender.com` URL.
